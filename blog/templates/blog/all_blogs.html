@@ -1,0 +1,51 @@
+{% extends "info/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+
+<section id="why-us" class="why-us section-bg">
+    <div class="container-fluid" data-aos="fade-up">
+      <div class="row">
+        <div class=" d-flex flex-column justify-content-center align-items-stretch">
+
+                </div>
+          </div>
+        </div>
+  </section><!-- End Why Us Section -->
+  <Div class="container" data-aos="fade-up">
+<div clas="row content">
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+
+      <th scope="col">Title</th>
+      <th scope="col">Date</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+<tbody>
+{% for blog in blogs %}
+
+
+    <tr>
+      {% if blog.urls %}
+      <td> <a href="{% url  blog.urls  %}"><h6>{{ blog.title }}</h6></a></td>
+      {% else %}
+      <td> <a href="{% url 'blog:detail' blog.id %}"><h6>{{ blog.title }}</h6></a></td>
+      {% endif %}
+      <td><h6>{{ blog.date|date:'d M Y'|upper}}</h6></td>
+      <td>{{ blog.description|striptags|safe|slice:':100'}}</td>
+
+
+{% endfor%}
+</tbody>
+</table>
+<br>
+
+</div>
+</Div>
+
+{% endblock %}

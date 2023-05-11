@@ -1,0 +1,36 @@
+{% extends "info/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<section id="about" class="about">
+  <Div class="container" data-aos="fade-up">
+
+            <Div class="section-title">
+            <h2>{{ blog.title|safe }}</h2>
+            </Div>
+<!-- <br> -->
+
+<Div class="row content">
+
+{{blog.date|date:'d M Y'|upper|safe}}
+
+</Div>
+<!-- <br> -->
+<br>
+
+{{ blog.description|safe }}
+
+<br>
+<br>
+<hr>
+          {% if blog.comments %}
+                <div class="row">
+
+                {{ blog.comments|safe }}
+                </div>
+        {% endif %}
+  </Div>
+</section>
+ {% endblock %}

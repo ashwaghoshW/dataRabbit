@@ -1,0 +1,431 @@
+{% extends "info/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<section id="about" class="about">
+  <Div class="container" data-aos="fade-up">
+
+            <Div class="section-title">
+              <h2>Graphical Representation of Target vs Achieved Performance</h2>
+            </Div>
+
+                <Div class="row content">
+                  <p>Whenever we do plan for improvements in any field; we set targets for achieving better performance. We set a new benchmark for improving performance. We have to regularly monitor our achievements to ensure we are moving toward planned targets. There are numerous ways of representing this target vs achievement. I have tried to collate all these representations under this blog. 'Plotting targets against current performance', is the best way for assessing performance so that we can manipulate our strategies under current situations to achieve the planned target. Refer below some listed methods for representing Target Vs Achievements. For this blog, I have chosen Sales for graphical representation.</p>
+
+    <ul>
+                <li><i class="ri-check-double-line"></i>Tabular representation</li>
+                <li><i class="ri-check-double-line"></i>Pie chart</li>
+                <li><i class="ri-check-double-line"></i>Donut chart</li>
+                <li><i class="ri-check-double-line"></i>Speedometer</li>
+                <li><i class="ri-check-double-line"></i>Bar/Column chart</li>
+                <li><i class="ri-check-double-line"></i>Stacked bar/column chart</li>
+                <li><i class="ri-check-double-line"></i>Bar inside bar chart</li>
+                <li><i class="ri-check-double-line"></i>Bullet chart</li>
+                <li><i class="ri-check-double-line"></i>Scatter plot</li>
+                <li><i class="ri-check-double-line"></i>Line chart</li>
+                <li><i class="ri-check-double-line"></i>Area chart</li>
+                <li><i class="ri-check-double-line"></i>Butterfly chart</li>
+                <li><i class="ri-check-double-line"></i>Bar chart with line chart</li>
+                <li><i class="ri-check-double-line"></i>Bar chart with scatter plot</li>
+
+    </ul>
+              </Div>
+              <br>
+              <br>
+              <hr>
+                  <Div class="row content">
+                          <h6>Tabular Representation</h6>
+                    <br>
+                        <p> It is the simplest form where Target and Achievements are plotted on two different columns. It is a numerical display format where both targets and current values are brought on the same decimal base for quick understanding. Additional formatting can be used for making data more readable. Refer the following tables where left side (mobile view - top table) is original data and right side (mobile view - bottom table) is formatted tabular representation. In the right table, values are Divided by lac(1,00,000) and rounded off. As the table is plotted for comparing current sales with target sales; all the values where the target is achieved are highlighted with green colour.
+                        </p>
+                  </Div>
+
+<Div class="row">
+      {% load plotly_dash %}
+      {%plotly_app_bootstrap name="TabularRepresentation" aspect="21by9"%}
+</Div>
+      <a href="https://dash.plotly.com/datatable" target="_blank">Ref: Plotly-dash datatables</a>
+
+<br>
+<hr>
+<br>
+<br>
+<Div class="row content">
+    <h6>Pie Chart</h6>
+    <br>
+
+</Div>
+  <br>
+  <Div class="row content">
+        <Div class="col-lg-6">
+              {% load plotly_dash %}
+              {%plotly_app_bootstrap name="SimplePieChart" aspect="1by1"%}
+              <br>
+                    <a href="https://plotly.com/python/pie-charts/" target="_blank">Ref: Plotly-dash Pie Charts</a>
+        </Div>
+        <Div class="col-lg-6 pt-4 pt-lg-0">
+          <p>
+          Pie chart is a circular graph. It converts data into circular slices where each slice angle corresponds to the percentage of the total value. <u>The pie chart is not the correct way to show target vs current performance.</u> Pie chart converts categories into slices. All these categories must sum up to form 100%. Target vs current Performance are two different categories, so to use pie; data to be arranged differently. Rather than showing Target vs achieved performance we can show pending performance vs achieved performance; so total becomes Target which are two categories of Target now.
+          </p>
+              <br>
+                        <p><u>Target Sales= Pending Sales(Sales Gap)+Achieved Sales(Actual Sales)</u></p>
+              <br>
+            <p>
+            Let's understand the pie chart from the data arrangement point of view. It is the arrangement of categories in a circular shape, a single category with multiple subcategories. There are no two categories comparison. Refer above table in Tabular Representation, Target is one category and sales is another category each having months as a subcategory. The pie chart can be made for all subcategories of Target or all subcategories of sales but there is no way to compare all subcategories of Target with all the subcategories of sales. However single value can be displayed with the help of the approach discussed above in this para. This way we require difference pie chart for each subcategory. There is another restriction; total must not exceed 100%, We cannot display Sales exceeding Target using a pie chart.
+          </p>
+            <br>
+
+        </Div>
+</Div>
+<br>
+<hr>
+<br>
+<br>
+<Div class="row content">
+    <h6>Donut Chart</h6>
+    <br>
+
+</Div>
+  <br>
+  <Div class="row content">
+        <Div class="col-lg-6">
+              {% load plotly_dash %}
+              {%plotly_app_bootstrap name="DonutChart" aspect="1by1"%}
+              <br>
+                    <a href="https://plotly.com/python/pie-charts/" target="_blank">Ref: Plotly-dash Pie Charts</a>
+        </Div>
+        <Div class="col-lg-6 pt-4 pt-lg-0">
+           <br>
+           <br>
+           <br>
+           <br>
+          <p>
+            Donut chart is extended from pie charts except it has a round hole in the centre which makes it look like a donut (Doughnut), hence the name. The space at the centre can be used to display additional data. All the properties or restrictions of the pie chart apply to donut chart except the centre hole can be used to display additional info.
+          </p>
+
+            <br>
+
+        </Div>
+</Div>
+
+<br>
+<hr>
+<br>
+<br>
+<Div class="row content">
+    <h6>Speedometer</h6>
+    <br>
+
+</Div>
+  <br>
+  <Div class="row content">
+        <Div class="col-lg-6">
+              {% load plotly_dash %}
+              {%plotly_app_bootstrap name="Speedometer" aspect="1by1"%}
+              <br>
+                    <a href="https://plotly.com/python/gauge-Charts/" target="_blank">Ref: Plotly-dash Gauge chart</a>
+        </Div>
+        <Div class="col-lg-6 pt-4 pt-lg-0">
+          <p>
+          It is also called a gauge chart, indicator chart. Though it resembles donut chart and looks like an extension of the pie chart, it is much more powerful when it comes to representation. It overcomes the limitation of the pie chart and the donut chart. We can show target like a bullet, indicator ranges, actual performance, the difference between actual and target. Like the pie chart and the donut chart, we can not compare multiple subcategories with multiple subcategories of different categories. For that, we have to plot a series of gauges. If for an above table (Tabular Representation) we want to display monthly performance we would require to draw 12 gauges for each month or a single gauge with filter for a month. It is useful for displaying the final performance of any category. e.g. Total Sales vs Total Target.
+          </p>
+
+            <p>
+              Let's discuss the features of the speedometer. The dark red slant line represents Target. Value in the centre is actual Sales value i.e. current performance. A value below the current performance is delta value. It is the difference between Target vs actual Sales. Delta shows up a triangle and green colour if a sale is more than a target, it is down triangle and red colour is Sales is less than a target. Speedometer can be divided into steps, giving different colour to each step; so the current performance can be categories into various steps/levels.
+          </p>
+            <br>
+
+        </Div>
+</Div>
+<br>
+<hr>
+<br>
+<br>
+
+<Div class="row content">
+    <h6>Bar Chart/ Column Chart</h6>
+    <br>
+
+</Div>
+  <br>
+  <Div class="row content">
+        <Div class="col-lg-6">
+              {% load plotly_dash %}
+              {%plotly_app_bootstrap name="SimpleBarChart" aspect="1by1"%}
+              <br>
+                    <a href="https://plotly.com/python/bar-charts/" target="_blank">Ref: Plotly-dash Bar chart</a>
+        </Div>
+        <Div class="col-lg-6 pt-4 pt-lg-0 align-items-center">
+
+                  <p>
+                  Like a pie chart, bar/ column chart is also the simplest and widely used graph. When bars are plotted vertically, it is called column chart and when bars are plotted horizontally, it is called bar Chart. Length of bar is determined by the category value. Here we can plot multiple bars; each bar representing single value for subcategory, like Sales for Jan and Target for Jan. Main Category, is distinguished by the colour of the bars. Refer adjoining graph. There are two bars for each month, differentiated by colour.
+                  </p>
+
+
+        </Div>
+</Div>
+<br>
+<hr>
+<br>
+<br>
+<Div class="row content">
+    <h6>Stacked Bar Chart/ Column Chart</h6>
+    <br>
+
+</Div>
+  <br>
+  <Div class="row content">
+        <Div class="col-lg-6">
+              {% load plotly_dash %}
+              {%plotly_app_bootstrap name="StackedBarChart" aspect="1by1"%}
+              <br>
+                    <a href="https://plotly.com/python/bar-charts/" target="_blank">Ref: Plotly-dash Bar chart</a>
+        </Div>
+        <Div class="col-lg-6 pt-4 pt-lg-0 align-items-center">
+
+                  <p>
+                  With a little tweak, both target and achievement can be displayed using a single bar which is called a stacked bar chart. Like a pie chart, a stack bar chart is the sum of all categories; that is, all categories must sum up to 100% to form the stacked bar. Height of Bar is determined by the sum of all the values of categories. To make a stacked bar chart for target and sales, Target can be split into Achieved Sales and Pending Sales.
+                  </p>
+                  <br>
+                            <p><u>Target Sales= Pending Sales(Sales Gap)+Achieved Sales(Actual Sales)</u></p>
+                  <br>
+                  <p>Problem with above formula arises when Sales is higher than Target. In such cases Sales Gap is negative. Net output is equal to Target but Sales Gap is negative which visually contradicts Total Sales. To overcome such problems we have to take absolute values of Sales Gap and colour-code this gap based on actual values of Sales and Target. In the adjoining graph, green colour is sales lead; that is sales is higher than the target and red colour is sales lag, that is sales less than the target. All the bars with Sales lead having height more than the target and all the sales lag bar having height exactly equal to target. It is made possible by adding a hidden column in a table, whenever Sales is greater than Target choose Sales otherwise choose Target for displaying total Sales.    </p>
+
+
+        </Div>
+</Div>
+<br>
+<hr>
+<br>
+<br>
+
+<Div class="row content">
+    <h6>Bar Inside Bar</h6>
+    <br>
+
+</Div>
+  <br>
+  <Div class="row content">
+        <Div class="col-lg-6">
+              {% load plotly_dash %}
+              {%plotly_app_bootstrap name="BarInsideBar" aspect="1by1"%}
+              <br>
+                    <a href="https://plotly.com/python/bar-charts/" target="_blank">Ref: Plotly-dash Bar chart</a>
+        </Div>
+        <Div class="col-lg-6 pt-4 pt-lg-0 align-items-center">
+
+                  <p>
+                   It is similar to a stacked bar chart. But unlike the cumulative height of categories in a stacked bar graph, a 'bar inside bar'; each category bar is plotted with its different height. In stacked bar graph; graphs are plotted one above the other whereas in a 'bar inside bar' all subcategory bars share the same base. Here we play with the width of the bars. Outer bars are plotted with a larger width than inner bars. In a programming point of view; we change bar mode from stack to overlay. In the adjoining graph Target colour is fixed, Sales lag or lead colour changes based on value. A sales lead is green and sales lag is red.
+                  </p>
+
+
+        </Div>
+</Div>
+<br>
+<hr>
+<br>
+<br>
+<Div class="row content">
+    <h6>Bullet Chart</h6>
+    <br>
+
+</Div>
+  <br>
+  <Div class="row content">
+        <Div class="col-lg-6">
+              {% load plotly_dash %}
+              {%plotly_app_bootstrap name="BulletChart" aspect="1by1"%}
+              <br>
+                    <a href="https://plotly.com/python/bullet-charts/" target="_blank">Ref: Plotly-dash Bullet chart</a>
+        </Div>
+        <Div class="col-lg-6 pt-4 pt-lg-0 align-items-center">
+
+                  <p>
+                    Bullet chart is exactly similar to gauge chart, but instead of a circular axis, it has a horizontal axis. It more resembles to bar chart due to horizontal axis. Like the gauge chart, we can show a separate target line, achieved value steps- if we wish to categories performance. It is also called an Indicator chart. Like gauge chart it is mostly used to display final performance at any time point rather than for series, otherwise, we will have plot multiple indicators for entire series. i.e, 12 indicator for 12 months.
+                  </p>
+
+
+        </Div>
+</Div>
+<br>
+<hr>
+<br>
+<br>
+<Div class="row content">
+    <h6>Scatter Plot</h6>
+    <br>
+
+</Div>
+  <br>
+  <Div class="row content">
+        <Div class="col-lg-6">
+              {% load plotly_dash %}
+              {%plotly_app_bootstrap name="ScatterPlot" aspect="1by1"%}
+              <br>
+                    <a href="https://plotly.com/python/line-and-scatter/" target="_blank">Ref: Plotly-dash scatter plot</a>
+        </Div>
+        <Div class="col-lg-6 pt-4 pt-lg-0 align-items-center">
+
+                  <p>
+                  Scatter plot is two-dimensional Cartesian product plot, where one value is plotted on the x-axis and another value on the y-axis. The intersection of values on two axes becomes position for the marker. Scatter plots can be multidimensional; we can play with colour, size and shape of marker. Shape and colour can be applied to categorical data and size can be used for numerical values. In the adjoining figure, circle denotes targets whereas a sale is denoted by a triangle. Additionally, colour is applied to denote whether sales is higher than the target or less a.k.a sales lag or sales lead. Based on value; up-triangle with the green colour or down triangle red colour is displayed in the plot.
+                  </p>
+
+
+        </Div>
+</Div>
+<br>
+<hr>
+<br>
+<br>
+<Div class="row content">
+    <h6>Line Chart</h6>
+    <br>
+
+</Div>
+  <br>
+  <Div class="row content">
+        <Div class="col-lg-6">
+              {% load plotly_dash %}
+              {%plotly_app_bootstrap name="LineChart" aspect="1by1"%}
+              <br>
+                    <a href="https://plotly.com/python/line-charts/" target="_blank">Ref: Plotly-dash line chart</a>
+        </Div>
+        <Div class="col-lg-6 pt-4 pt-lg-0 align-items-center">
+
+                  <p>
+                  A line chart is the extension of the scatter plot. Markers plotted in the scatter plot are connected with lines to make a line chart. Entire series is plotted as one single line. In scatter plot if points are plotted at distance; that is; small series, it becomes difficult to identify the trend for that series. Line chart visually helps to identify trend/correlations exists in underlying data. In the adjoining plot, one line represents the sale and another is for the target.
+                  </p>
+
+
+        </Div>
+</Div>
+<br>
+<hr>
+<br>
+<br>
+<Div class="row content">
+    <h6>Area Chart</h6>
+    <br>
+
+</Div>
+  <br>
+  <Div class="row content">
+        <Div class="col-lg-6">
+              {% load plotly_dash %}
+              {%plotly_app_bootstrap name="AreaChart" aspect="1by1"%}
+              <br>
+                    <a href="https://plotly.com/python/filled-area-plots/" target="_blank">Ref: Plotly-dash filled area charts</a>
+        </Div>
+        <Div class="col-lg-6 pt-4 pt-lg-0 align-items-center">
+
+                  <p>
+                    An area chart is the extension of the line chart. The area below the line is filled with colour or texture to visually differentiate quantities. The entire area below the line and area above and beside axes is shaded. An area chart is used for comparing two quantities. An issue with Area chart is higher value over-shades lower value. So if series having all the values lower than another series then only higher value series remains visible. To ensure both series remain visible in the plot, during coding; we have to plot lower value data series first.
+                  </p>
+
+
+        </Div>
+</Div>
+<br>
+<hr>
+<br>
+<br>
+<Div class="row content">
+    <h6>Butterfly Chart</h6>
+    <br>
+
+</Div>
+  <br>
+  <Div class="row content">
+        <Div class="col-lg-6">
+              {% load plotly_dash %}
+              {%plotly_app_bootstrap name="Butterfly" aspect="1by1"%}
+              <br>
+                    <a href="https://en.wikipedia.org/wiki/Tornado_diagram" target="_blank">Ref: Wikipedia - Butterfly Chart</a>
+        </Div>
+        <Div class="col-lg-6 pt-4 pt-lg-0 align-items-center">
+
+                  <p>
+                  Butterfly chart is a type of bar chart. It compares two categories at a particular point of time; by plotting them side by side. This graph generally used for sensitivity analysis. It is also called a tornado chart. Here Target and Sales are plotted on two different sides of the y-axis. From a programming point of view, these are two different graphs plotted next to each other; y-axis of one graph is hidden, instead of negative x-axis we have positive x-axis on both sides of y-axis.
+                  </p>
+
+
+        </Div>
+</Div>
+<br>
+<hr>
+<br>
+<br>
+<Div class="row content">
+    <h6>Combination Charts</h6>
+    <br>
+
+</Div>
+<p>Following two charts are the combination of the above charts</p>
+
+  <br>
+  <Div class="row content">
+
+        <Div class="col-lg-6">
+              <p>Bar Chart with line chart</p>
+              <br>
+              {% load plotly_dash %}
+              {%plotly_app_bootstrap name="BarWithLine" aspect="1by1"%}
+        </Div>
+        <Div class="col-lg-6">
+
+          <p>Bar Chart with Scatter Plot</p>
+          <br>
+          {% load plotly_dash %}
+          {%plotly_app_bootstrap name="BarWithScatter" aspect="1by1"%}
+
+
+        </Div>
+</Div>
+<br>
+<hr>
+<br>
+<br>
+<Div class="row content">
+        <h6>Your Preference</h6>
+</Div>
+
+<Div class="row">
+{% load plotly_dash %}
+{%plotly_app_bootstrap name="ChartVotes" aspect="4by3"%}
+</Div>
+<br>
+<hr>
+
+
+<div class="faq-list">
+
+              <div class="section-title">
+
+                <h6>
+                  <a class="btn btn-light" data-toggle="collapse" href="#comments-policy" role="button" aria-expanded="false" aria-controls="comments-policy">Comments Policy</a>
+                </h6>
+              </div>
+
+            <div class="collapse" id="comments-policy">
+                    <div class="row ">
+                      <p>Your comments are included using telegram comments widget. It is my public channel on telegram where your comments will be added. No personnel details are stored on this site, including the phone number that you are using for authentication. All policies of Telegram are applicable while commenting. If you are a registered user of a telegram, log in using your registered phone number. Authentication and commenting part is completely handled by telegram. Site is only displaying comments entered into the public channel. Administrator scrutiny applies to your comments; saying that, inappropriate comments would be deleted. Repeated offences, the commenter will be blocked for further commenting on this channel.</p>
+                      <p>If you can't see the comment box, your browser has disabled third-party cookies. Check the URL of the site, click on lock button in the left side of the URL, click allow third-party cookies for this site. Congratulation!!!, now you can comment on this blog.</p>
+                    </div>
+                    <div class="cliens cliens-img">
+                    <img src="{% static "blog/commentcookies.jpg" %}" class="img-fluid" alt="Enable cookie">
+                    </div>
+            </div>
+</div>
+<br>
+<hr>
+<div class="row">
+<script async src="https://comments.app/js/widget.js?3" data-comments-app-website="5lOMc6Sq" data-limit="5" data-page-id="https://datarabbit.in/blog/blog/TargetVsAchievements" data-dislikes="1" data-colorful="1"></script>
+</div>
+</Div>
+<!-- container end -->
+</section>
+
+
+ {% endblock %}
